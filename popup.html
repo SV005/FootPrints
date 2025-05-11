@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FootPrints</title>
+    <style>
+      body {
+        font-family: 'Nunito', sans-serif;
+        background: #fef9f3;
+        margin: 0;
+        padding: 10px;
+        width: 300px;
+      }
+
+      h3 {
+        color: #444;
+        margin-bottom: 10px;
+      }
+
+      .highlight-list {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+      }
+
+      .highlight-item {
+        background: #ffefc1;
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .highlight-item span.text {
+        flex-grow: 1;
+        margin-right: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .highlight-item button {
+        margin-left: 5px;
+        background: #e74c3c;
+        border: none;
+        color: #fff;
+        padding: 5px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .highlight-item button.update-btn {
+        background: #3498db;
+      }
+
+      .color-picker {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+      }
+
+      .color-option {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+      }
+
+      .color-option:hover {
+        transform: scale(1.2);
+      }
+
+      .footprints-highlight {
+        border-radius: 3px;
+        padding: 0 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>FootPrints</h3>
+    
+    <h4>Pick Highlight Color:</h4>
+    <div class="color-picker" id="colorPicker">
+      <div class="color-option" style="background: #f5a9b8;" data-color="#f5a9b8"></div>
+      <div class="color-option" style="background: #f6c38f;" data-color="#f6c38f"></div>
+      <div class="color-option" style="background: #ffe787;" data-color="#ffe787"></div>
+      <div class="color-option" style="background: #a8e6cf;" data-color="#a8e6cf"></div>
+      <div class="color-option" style="background: #85c5f9;" data-color="#85c5f9"></div>
+    </div>
+    <button id="downloadButton">Download Highlights</button>
+    <button id="uploadButton">Upload Highlight Data</button>
+    <input type="file" id="uploadInput" accept=".json" style="display:none;" />
+    <script src="popup.js"></script>
+    <script src="download.js"></script>
+    <script src="upload.js"></script>
+  </body>
+</html>
