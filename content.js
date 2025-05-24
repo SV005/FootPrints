@@ -76,7 +76,7 @@ function createHighlightButton(range, color) {
 
   // Add the image inside the button
   const img = document.createElement('img');
-  img.src = chrome.runtime.getURL('icons\Icons-highlight.PNG');
+  img.src = chrome.runtime.getURL('icons/icons-highlight.PNG');
   img.alt = 'Highlight';
   img.style.width = '38px';
   img.style.height = '38px';
