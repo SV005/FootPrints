@@ -57,20 +57,33 @@ function createHighlightButton(range, color) {
   const rect = range.getBoundingClientRect();
   const button = document.createElement('button');
   button.id = 'footprints-highlight-button';
-  button.textContent = 'Highlight Text';
   button.style.position = 'absolute';
-  button.style.top = `${rect.top + window.scrollY - 40}px`;
+  button.style.top = `${rect.top + window.scrollY - 50}px`;
   button.style.left = `${rect.left + window.scrollX}px`;
-  button.style.padding = '5px 10px';
-  // New styling: semi-transparent background with blur, black border, and black text.
-  button.style.backgroundColor = 'rgba(172, 172, 172, 0.5)';
-  button.style.backdropFilter = 'blur(4px)';
-  button.style.border = '1px solid black';
-  button.style.color = 'black';
-  button.style.borderRadius = '4px';
-  button.style.cursor = 'pointer';
+  button.style.width =  '35px';
+  button.style.height = '35px';
+  button.style.padding = '0';
+  button.style.background = 'rgba(53, 53, 53, 0.85)'; // Gray with transparency
+  button.style.border = '2px solid rgba(210, 210, 210, 0.93)'; // White border with transparency
+  button.style.borderRadius = '50%';
+  button.style.display = 'flex';
+  button.style.alignItems = 'center';
+  button.style.justifyContent = 'center';
   button.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
   button.style.zIndex = '1000';
+  button.style.cursor = 'pointer';
+  button.style.overflow = 'hidden';
+
+  // Add the image inside the button
+  const img = document.createElement('img');
+  img.src = chrome.runtime.getURL('icons\Icons-highlight.PNG');
+  img.alt = 'Highlight';
+  img.style.width = '38px';
+  img.style.height = '38px';
+  img.style.objectFit = 'cover';
+  img.style.borderRadius = '50%';
+  button.appendChild(img);
+
   document.body.appendChild(button);
 
   button.addEventListener('click', () => {
@@ -85,7 +98,7 @@ function createHighlightButton(range, color) {
 
   // Remove the button if the user clicks anywhere else
   const removeButton = (e) => {
-    if (e.target !== button) {
+    if (e.target !== button && e.target !== img) {
       button.remove();
       document.removeEventListener('click', removeButton);
     }
